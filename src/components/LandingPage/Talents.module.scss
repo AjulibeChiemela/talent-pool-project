@@ -1,0 +1,52 @@
+.talents {
+  height: 60rem;
+  padding-inline: 8.75rem;
+  background-color: #ffffff;
+  .talents_card_wrap {
+    display: flex;
+    justify-content: space-between;
+    .talents_card {
+      width: 23.375rem;
+      .talents_text {
+        padding-block: 1.5rem;
+        height: 21.6875rem;
+        font-weight: 300;
+        color: #343434;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        & > div:nth-child(1) {
+          p:nth-child(1) {
+            color: #012c3d;
+            font-weight: 500;
+          }
+        }
+        & > div:nth-child(2) {
+          margin-block: 1.7rem;
+        }
+        & > div:nth-child(3) {
+          p:nth-child(1) {
+            font-size: 0.75rem;
+            color: #012c3d;
+            span {
+              font-weight: 500;
+            }
+          }
+          img {
+            height: 2.3125rem;
+          }
+        }
+      }
+      .talents_btn {
+        width: 100%;
+        background-color: #084482;
+        box-shadow: 0px 4px 12px rgba(215, 215, 215, 0.25);
+        border-radius: 0px 0px 5px 5px;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 1rem 4.3125rem;
+      }
+    }
+  }
+}
