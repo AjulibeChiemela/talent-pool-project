@@ -1,7 +1,35 @@
 .talents {
   height: 60rem;
-  padding-inline: 8.75rem;
+  padding: 5rem 8.75rem 7rem;
   background-color: #ffffff;
+  h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 3rem;
+    text-align: center;
+    color: #1c1c1c;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    margin-block: 3.125rem;
+    padding-inline: 18rem;
+    text-align: center;
+    li {
+      .li {
+        font-weight: 400;
+        font-size: 1rem;
+        color: #c2c2c2;
+        text-decoration: none;
+        margin-inline: 2.5rem;
+        padding-bottom: 0.5rem;
+        &.active {
+          color: #343434;
+          border-bottom: 3px solid #084482;
+        }
+      }
+    }
+  }
   .talents_card_wrap {
     display: flex;
     justify-content: space-between;
@@ -39,6 +67,7 @@
       }
       .talents_btn {
         width: 100%;
+        border: 1px solid #084482;
         background-color: #084482;
         box-shadow: 0px 4px 12px rgba(215, 215, 215, 0.25);
         border-radius: 0px 0px 5px 5px;
