@@ -1,0 +1,72 @@
+.hire {
+  padding-inline: 8.75rem;
+  text-align: center;
+  margin-bottom: 7.5rem;
+  h2 {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    color: #1c1c1c;
+  }
+  .hire_steps {
+    h2 {
+      margin-block: 1rem 2.5rem;
+    }
+    .hire_steps_wrap {
+      padding-inline: 4rem;
+      display: flex;
+      justify-content: space-between;
+      & > div {
+        width: 19.6875rem;
+        margin-bottom: 7.5rem;
+        p:nth-of-type(1) {
+          font-size: 1.2rem;
+          font-weight: 400;
+          color: #676767;
+          line-height: 2.25rem;
+          margin-block: 1.5rem 0.5625rem;
+        }
+        p:nth-of-type(2) {
+          font-size: 1rem;
+          font-weight: 300;
+          color: #343434;
+          line-height: 1.6rem;
+        }
+      }
+    }
+  }
+  .hire_talents {
+    & > p {
+      width: 31rem;
+      margin: 0.9375rem auto 2.875rem;
+      color: #343434;
+      line-height: 1.6rem;
+      font-weight: 300;
+    }
+    .hire_talents_grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      justify-items: center;
+      .hire_talents_card {
+        width: 21.5625rem;
+        height: 23.5rem;
+        padding: 5rem 1.5rem;
+        background-color: #e7e7e7;
+        box-shadow: 0px 4px 12px rgba(215, 215, 215, 0.25);
+        h3 {
+          font-weight: 500;
+          font-size: 1.2rem;
+          color: #012c3d;
+          line-height: 2.33125rem;
+          margin-block: 1.875rem 1rem;
+        }
+        p {
+          line-height: 1.6rem;
+          font-weight: 300;
+          color: #343434;
+        }
+      }
+    }
+  }
+}
