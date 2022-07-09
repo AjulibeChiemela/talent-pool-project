@@ -1,0 +1,128 @@
+.reasons {
+  margin-bottom: 5rem;
+  .reasons_grid {
+    padding-inline: 8.75rem 5.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 5rem;
+    .reasons_grid_item {
+      background-repeat: no-repeat;
+      width: 23.5rem;
+      height: 19.25rem;
+      border-radius: 5px;
+      img {
+        width: 100%;
+        max-width: 23.5rem;
+        height: auto;
+        border-radius: 5px;
+      }
+      &:nth-child(1),
+      &:nth-child(7) {
+        height: fit-content;
+        margin-block: auto;
+        h2 {
+          font-weight: 400;
+          font-size: 1.8rem;
+          line-height: 3rem;
+          color: #1c1c1c;
+        }
+        p {
+          font-weight: 300;
+          font-size: 1rem;
+          line-height: 1.625rem;
+
+          color: #343434;
+        }
+      }
+      &:nth-child(2) {
+        background-image: url(../../../public/images/Rectangle132.png);
+      }
+      &:nth-child(3) {
+        background-image: url(../../../public/images/Rectangle133.png);
+      }
+      &:nth-child(4) {
+        background-image: url(../../../public/images/Rectangle134.png);
+      }
+      &:nth-child(5) {
+        background-image: url(../../../public/images/Rectangle135.png);
+      }
+      &:nth-child(6) {
+        background-image: url(../../../public/images/Rectangle136.png);
+      }
+      .overlay {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.61);
+        border-radius: 5px;
+        &:hover {
+          background: rgba(0, 0, 0, 0.2);
+        }
+      }
+      p:nth-child(1) {
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1rem;
+        color: #ffffff;
+        padding-top: 65%;
+        padding-left: 1.5rem;
+        & + p {
+          font-weight: 300;
+          font-size: 1.2rem;
+          line-height: 2.25rem;
+          color: #ffffff;
+          padding-left: 1.5rem;
+        }
+      }
+    }
+    .black_cards {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 3.3rem;
+      grid-column: 2/4;
+      & > div {
+        background-color: #000000;
+        border-radius: 5px;
+        color: #ffffff;
+        width: 15.4375rem;
+        padding: 4.1875rem 2.1875rem 1.5rem 1.3125rem;
+        & > p {
+          &:nth-child(1) {
+            font-weight: 300;
+            line-height: 1.625rem;
+            margin-bottom: 2.3125rem;
+          }
+          &:nth-child(2) {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            img {
+              margin-left: 1rem;
+              // margin-block: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+  & > section {
+    text-align: center;
+    h3 {
+      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 2.25rem;
+      color: #000000;
+      margin-bottom: 1.5rem;
+    }
+    .cta {
+      margin-inline: auto;
+      padding: 0.85rem 1.625rem;
+      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+      background-color: #00aeff;
+      color: #ffffff;
+    }
+  }
+}

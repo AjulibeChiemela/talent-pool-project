@@ -1,0 +1,24 @@
+.join {
+  background-color: #00aeff;
+  height: 29.5625rem;
+  text-align: center;
+  // padding: 7.5rem 15rem;
+  padding: 7.5rem 25%;
+  color: #ffffff;
+  h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 3.75rem;
+  }
+  .join_btn {
+    background-color: #084482;
+    border: 1px solid #084482;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    padding: 0.875rem 1.625rem;
+    margin-inline: auto;
+    margin-top: 3.4375rem;
+  }
+}
