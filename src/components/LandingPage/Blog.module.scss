@@ -11,12 +11,9 @@
   section {
     display: flex;
     justify-content: space-between;
-    & > div {
-      box-shadow: 0px 5px 12px rgba(215, 215, 215, 0.9);
-    }
     .blog_card {
       width: 23.375rem;
-      box-shadow: 0px 5px 12px rgba(215, 215, 215, 0.25);
+      box-shadow: 0px 4px 12px rgba(215, 215, 215, 0.9);
       & > div {
         padding-inline: 1.5rem;
         p {

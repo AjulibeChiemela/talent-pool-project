@@ -9,6 +9,7 @@ import Join from "./components/LandingPage/Join";
 import Reasons from "./components/LandingPage/Reasons";
 import Talents from "./components/LandingPage/Talents";
 import Navbar from "./components/SharedLayouts/Navbar";
+import Footer from "./components/SharedLayouts/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Reasons />
       <Join />
       <Blog />
+      <Footer />
     </div>
   );
 }

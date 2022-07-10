@@ -73,6 +73,7 @@ const Talents = () => {
           </div>
           <Button className={classes.talents_btn}>Visit Adelanke</Button>
         </Card>
+
         <Card className={classes.talents_card}>
           <img src="images/Rectangle18.png" alt="" />
           <div className={classes.talents_text}>
