@@ -10,6 +10,7 @@ import Reasons from "./components/LandingPage/Reasons";
 import Talents from "./components/LandingPage/Talents";
 import Navbar from "./components/SharedLayouts/Navbar";
 import Footer from "./components/SharedLayouts/Footer";
+import Build from "./components/LandingPage/Build";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Talents />
       <Hire />
       <Reasons />
+      <Build />
       <Join />
       <Blog />
       <Footer />
