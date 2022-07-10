@@ -14,9 +14,18 @@
     ul {
       list-style: none;
       display: flex;
-      color: #25282b;
+
       li {
         margin-right: 2rem;
+        a {
+          text-decoration: none;
+          color: #25282b;
+          &.active {
+            font-weight: 600;
+            color: #1f2430;
+            border-bottom: 2px solid #084482;
+          }
+        }
       }
     }
     .nav_btn {
