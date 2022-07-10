@@ -45,7 +45,6 @@
       }
       .blog_btn {
         background-color: #084482;
-
         border-radius: 0px 0px 5px 5px;
         border: 1px solid #084482;
         font-style: normal;
@@ -54,6 +53,9 @@
         color: #ffffff;
         padding: 1rem 4.3125rem;
         width: 100%;
+        &:hover {
+          background-color: #032547;
+        }
       }
     }
   }

@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Navbar.module.scss";
 import Button from "../UI/Button";
 import { NavLink } from "react-router-dom";
+import SignInAs from "../Modals/SignInAs";
+import SignUpAs from "../Modals/SignUpAs";
 
 const Navbar = () => {
+  const [signUp, setSignUp] = useState(false);
+  const [signIn, setSignIn] = useState(false);
+  const handleSignUp = () => {
+    setSignUp(true);
+  };
+  const handleSignIn = () => {
+    setSignIn(true);
+  };
   return (
     <div className={classes.nav}>
       <img src="images/logo.png" alt="talent-pool logo" />
@@ -66,8 +76,14 @@ const Navbar = () => {
             </NavLink>
           </li>
         </ul>
-        <Button className={classes.nav_btn}>Sign In</Button>
-        <Button className={classes.nav_btn}>Sign Up</Button>
+        <Button className={classes.nav_btn} onClick={handleSignIn}>
+          Sign In
+        </Button>
+        <Button className={classes.nav_btn} onClick={handleSignUp}>
+          Sign Up
+        </Button>
+        {signIn && <SignInAs />}
+        {signUp && <SignUpAs />}
       </div>
     </div>
   );

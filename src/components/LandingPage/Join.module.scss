@@ -20,5 +20,8 @@
     padding: 0.875rem 1.625rem;
     margin-inline: auto;
     margin-top: 3.4375rem;
+    &:hover {
+      background-color: #032547;
+    }
   }
 }

@@ -123,6 +123,9 @@
       line-height: 1.5rem;
       background-color: #00aeff;
       color: #ffffff;
+      &:hover {
+        background-color: rgb(2, 131, 190);
+      }
     }
   }
 }

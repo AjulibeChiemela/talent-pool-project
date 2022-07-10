@@ -1,0 +1,27 @@
+.SignUpAs_modal {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  // background-color: rgb(196, 196, 196, 0.26);
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 20;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div {
+    padding: 3% 5%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    a {
+      text-decoration: none;
+      display: block;
+      margin-block: 1rem;
+      color: #084482;
+      &:hover {
+        color: green;
+      }
+    }
+  }
+}

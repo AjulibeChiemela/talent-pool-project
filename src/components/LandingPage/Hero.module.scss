@@ -27,6 +27,9 @@
         background-color: #00aeff;
         border-radius: 5px;
         padding: 0.875rem 1.625rem;
+        &:hover {
+          background-color: rgb(2, 131, 190);
+        }
       }
     }
     &.images_section {

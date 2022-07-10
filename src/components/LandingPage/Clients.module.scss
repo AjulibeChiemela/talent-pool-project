@@ -58,5 +58,8 @@
     font-size: 1.2rem;
     padding: 0.875rem 2.875rem;
     align-self: center;
+    &:hover {
+      background-color: rgb(2, 131, 190);
+    }
   }
 }
