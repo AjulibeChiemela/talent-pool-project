@@ -107,6 +107,9 @@
             width: 100%;
             padding-block: 1rem;
             margin-block: 2.625rem 3.25rem;
+            &:hover {
+              background-color: rgb(2, 131, 190);
+            }
           }
           & + div {
             display: flex;

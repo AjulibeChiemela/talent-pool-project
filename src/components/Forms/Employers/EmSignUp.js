@@ -19,7 +19,7 @@ const EmSignUp = () => {
           <ul>
             <li>
               <NavLink
-                to="/"
+                to="/Em_SignUp"
                 className={({ isActive }) =>
                   isActive
                     ? `${classes.active} ${classes.link}`
@@ -31,7 +31,7 @@ const EmSignUp = () => {
             </li>
             <li>
               <NavLink
-                to="/nothing"
+                to="/nothing2"
                 className={({ isActive }) =>
                   isActive
                     ? `${classes.active} ${classes.link}`

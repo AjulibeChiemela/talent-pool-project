@@ -19,7 +19,7 @@ const GradSignUp = () => {
           <ul>
             <li>
               <NavLink
-                to="/"
+                to="/Graduate_SignUp"
                 className={({ isActive }) =>
                   isActive
                     ? `${classes.active} ${classes.link}`
@@ -31,7 +31,7 @@ const GradSignUp = () => {
             </li>
             <li>
               <NavLink
-                to="/nothing"
+                to="/nothing1"
                 className={({ isActive }) =>
                   isActive
                     ? `${classes.active} ${classes.link}`

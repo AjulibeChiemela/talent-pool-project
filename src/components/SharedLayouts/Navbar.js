@@ -14,6 +14,10 @@ const Navbar = () => {
   const handleSignIn = () => {
     setSignIn(true);
   };
+  const handleModalClose = () => {
+    setSignUp(false);
+    setSignIn(false);
+  };
   return (
     <div className={classes.nav}>
       <img src="images/logo.png" alt="talent-pool logo" />
@@ -82,8 +86,8 @@ const Navbar = () => {
         <Button className={classes.nav_btn} onClick={handleSignUp}>
           Sign Up
         </Button>
-        {signIn && <SignInAs />}
-        {signUp && <SignUpAs />}
+        {signIn && <SignInAs onExitModal={handleModalClose} />}
+        {signUp && <SignUpAs onExitModal={handleModalClose} />}
       </div>
     </div>
   );
