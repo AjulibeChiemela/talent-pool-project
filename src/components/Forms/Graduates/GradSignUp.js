@@ -122,7 +122,7 @@ const GradSignUp = () => {
         </div>
         <p>
           Already have an account with us?
-          <Link to="/" className={classes.gradSignUp_signUp}>
+          <Link to="/Graduate_SignIn" className={classes.gradSignUp_signUp}>
             Sign In
           </Link>
         </p>

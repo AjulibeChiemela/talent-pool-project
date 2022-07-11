@@ -56,7 +56,7 @@ const GradSignIn = () => {
         </div>
         <p>
           Don’t have an account with us?{" "}
-          <Link to="/" className={classes.gradSignIn_signUp}>
+          <Link to="/Graduate_SignUp" className={classes.gradSignIn_signUp}>
             Sign Up
           </Link>
         </p>

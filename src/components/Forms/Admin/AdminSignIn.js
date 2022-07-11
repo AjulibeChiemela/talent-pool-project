@@ -59,7 +59,7 @@ const AdminSignIn = () => {
         </div>
         <p>
           Don’t have an account with us?{" "}
-          <Link to="/" className={classes.AdminSignIn_signUp}>
+          <Link to="/Admin_SignUp" className={classes.AdminSignIn_signUp}>
             Sign Up
           </Link>
         </p>

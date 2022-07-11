@@ -56,7 +56,7 @@ const EmSignIn = () => {
         </div>
         <p>
           Don’t have an account with us?{" "}
-          <Link to="/" className={classes.EmSignIn_signUp}>
+          <Link to="/Em_SignUp" className={classes.EmSignIn_signUp}>
             Sign Up
           </Link>
         </p>

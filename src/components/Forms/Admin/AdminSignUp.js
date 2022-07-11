@@ -89,7 +89,7 @@ const AdminSignUp = () => {
         </div>
         <p>
           Already have an account with us?
-          <Link to="/" className={classes.AdminSignUp_signUp}>
+          <Link to="/Admin_SignIn" className={classes.AdminSignUp_signUp}>
             Sign In
           </Link>
         </p>
