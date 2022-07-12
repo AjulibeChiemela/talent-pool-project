@@ -1,9 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Button from "../../UI/Button";
 import classes from "./GradSignUp.module.scss";
 
 const GradSignUp = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [pass1, setPass1] = useState("");
+  const [pass2, setPass2] = useState("");
+  const [emailIsValid, setEmailIsValid] = useState();
+  const [passwordIsValid, setPasswordIsValid] = useState();
+  const [formIsValid, setFormIsValid] = useState(false);
+
+  const handleFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+  const handleLastName = (e) => {
+    setLastName(e.target.value);
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePhoneNo = (e) => {
+    setPhoneNo(e.target.value);
+  };
+  const handlePass1 = (e) => {
+    setPass1(e.target.value);
+  };
+  const handlePass2 = (e) => {
+    setPass2(e.target.value);
+  };
+
+  const validateEmailHandler = () => {
+    setEmailIsValid(email.includes("@"));
+  };
+
+  const validatePassword1Handler = () => {
+    setPasswordIsValid(pass1.trim().length > 7);
+  };
+
+  const validatePassword2Handler = () => {
+    setPasswordIsValid(pass2.trim().length > 7);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFormIsValid(
+        email.includes("@") &&
+          pass1.trim().length > 7 &&
+          pass2.trim().length > 7 &&
+          pass1 === pass2
+      );
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [email, pass1, pass2]);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    const userInfo = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phoneNo: phoneNo,
+      pass1: pass1,
+      pass2: pass2,
+    };
+
+    console.log(userInfo);
+  };
+
   return (
     <div className={classes.gradSignUp}>
       <section className={classes.image_section}></section>
@@ -43,7 +112,7 @@ const GradSignUp = () => {
             </li>
           </ul>
           <hr />
-          <form>
+          <form onSubmit={handleFormSubmit}>
             <main>
               <div>
                 <label htmlFor="firstname">First Name</label>
@@ -52,6 +121,7 @@ const GradSignUp = () => {
                   id="firstname"
                   name="firstname"
                   placeholder=" e.g john "
+                  onChange={handleFirstName}
                 />
               </div>
               <div>
@@ -61,15 +131,20 @@ const GradSignUp = () => {
                   id="lastname"
                   name="lastname"
                   placeholder="  e.g doe   "
+                  onChange={handleLastName}
                 />
               </div>
-              <div>
+              <div
+                className={`${emailIsValid === false ? classes.invalid : ""}`}
+              >
                 <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   placeholder=" example@gmail.com "
+                  onChange={handleEmail}
+                  onBlur={validateEmailHandler}
                 />
               </div>
               <div>
@@ -79,34 +154,56 @@ const GradSignUp = () => {
                   id="phoneNo"
                   name="phoneNo"
                   placeholder=" e.g +2348090000123 "
+                  onChange={handlePhoneNo}
                 />
               </div>
-              <div>
+              <div
+                className={`${
+                  passwordIsValid === false ? classes.invalid : ""
+                }`}
+              >
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   id="password"
                   name="password"
                   placeholder=" at least 8 characters "
+                  onChange={handlePass1}
+                  onBlur={validatePassword1Handler}
+                  autoComplete="false"
                 />
               </div>
-              <div>
+              <div
+                className={`${
+                  passwordIsValid === false ? classes.invalid : ""
+                }`}
+              >
                 <label htmlFor="password2">Confirm Password</label>
                 <input
                   type="password"
                   id="password2"
                   name="password2"
                   placeholder=" at least 8 characters"
+                  onChange={handlePass2}
+                  onBlur={validatePassword2Handler}
+                  autoComplete="false"
                 />
               </div>
             </main>
             <div>
-              <input type="checkbox" id="agree" name="agree" />
+              <input type="checkbox" id="agree" name="agree" required />
               <label htmlFor="agree">
                 I agree to the <Link to="/">Terms Policy Conditions</Link>
               </label>
             </div>
-            <Button type="submit" className={classes.gradSignUp_btn}>
+            {pass1 !== pass2 && (
+              <p>Passwords don't match. Please re-confirm.</p>
+            )}
+            <Button
+              type="submit"
+              className={classes.gradSignUp_btn}
+              disabled={!formIsValid}
+            >
               Sign Up
             </Button>
           </form>

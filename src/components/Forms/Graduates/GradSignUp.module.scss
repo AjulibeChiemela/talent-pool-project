@@ -87,6 +87,12 @@
                   outline: none;
                 }
               }
+              &.invalid {
+                input {
+                  border-color: red;
+                  background: #fbdada;
+                }
+              }
             }
             & + div {
               display: flex;
@@ -98,6 +104,12 @@
               a {
                 color: #084482;
               }
+              & + p {
+                color: red;
+                width: fit-content;
+                margin-inline: auto;
+                margin-top: 1rem;
+              }
             }
           }
           .gradSignUp_btn {
@@ -106,9 +118,19 @@
             border-radius: 5px;
             width: 100%;
             padding-block: 1rem;
-            margin-block: 2.625rem 3.25rem;
+            margin-block: 2rem 3.25rem;
+            font-size: 1.3rem;
             &:hover {
               background-color: rgb(2, 131, 190);
+            }
+            &:disabled,
+            :focus:disabled,
+            :hover:disabled,
+            :active:disabled {
+              background: #ccc;
+              border-color: #ccc;
+              color: #666666;
+              cursor: not-allowed;
             }
           }
           & + div {

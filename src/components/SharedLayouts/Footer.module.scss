@@ -1,5 +1,6 @@
 .footer {
-  padding-inline: 8.75rem;
+  // padding-inline: 8.75rem;
+  padding-inline: 8%;
   background-color: #084482;
 
   main {
@@ -56,5 +57,26 @@
     line-height: 1.25rem;
     color: #ffffff;
     padding-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .footer {
+    main {
+      grid-template-columns: repeat(3, minmax(auto, 1fr));
+      gap: 1.5rem;
+      justify-items: start;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    main {
+      grid-template-columns: minmax(auto, 1fr);
+      text-align: center;
+      // gap: 1.5rem;
+      justify-items: center;
+    }
   }
 }

@@ -1,7 +1,7 @@
 .gradSignIn {
   display: flex;
   section {
-    height: 51.375rem;
+    // height: 51.375rem;
     &.image_section {
       width: 38%;
       background: url(../../../../public/images/side_image.png);
@@ -60,6 +60,12 @@
                   outline: none;
                 }
               }
+              &.invalid {
+                input {
+                  border-color: red;
+                  background: #fbdada;
+                }
+              }
             }
             & + div {
               display: flex;
@@ -87,8 +93,18 @@
             width: 100%;
             padding-block: 1rem;
             margin-block: 2.625rem 3.25rem;
+            font-size: 1.3rem;
             &:hover {
               background-color: rgb(2, 131, 190);
+            }
+            &:disabled,
+            :focus:disabled,
+            :hover:disabled,
+            :active:disabled {
+              background: #ccc;
+              border-color: #ccc;
+              color: #666666;
+              cursor: not-allowed;
             }
           }
           & + div {
@@ -106,13 +122,15 @@
       }
       .gradSignIn_logos {
         text-align: center;
-        margin-bottom: 2.041875rem;
+        margin-bottom: 1.5rem;
         img:nth-child(2) {
           padding-left: 2rem;
         }
         & + p {
           text-align: center;
           color: #495057;
+          margin-bottom: 1rem;
+
           a {
             color: #00aeff;
           }

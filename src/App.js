@@ -35,7 +35,7 @@ function App() {
         <Route path="Admin_SignUp" element={<AdminSignUp />} />
       </Routes>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

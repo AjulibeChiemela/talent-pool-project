@@ -1,7 +1,7 @@
 .EmSignUp {
   display: flex;
   section {
-    height: 67.6875rem;
+    // height: 67.6875rem;
     &.image_section {
       width: 38%;
       background: url(../../../../public/images/side_image2.png);
@@ -84,6 +84,12 @@
                   outline: none;
                 }
               }
+              &.invalid {
+                input {
+                  border-color: red;
+                  background: #fbdada;
+                }
+              }
             }
             & + div {
               display: flex;
@@ -112,8 +118,18 @@
             width: 100%;
             padding-block: 1rem;
             margin-block: 2.625rem 3.25rem;
+            font-size: 1.3rem;
             &:hover {
               background-color: rgb(2, 131, 190);
+            }
+            &:disabled,
+            :focus:disabled,
+            :hover:disabled,
+            :active:disabled {
+              background: #ccc;
+              border-color: #ccc;
+              color: #666666;
+              cursor: not-allowed;
             }
           }
           & + div {

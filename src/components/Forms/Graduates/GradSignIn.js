@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../UI/Button";
 import classes from "./GradSignIn.module.scss";
+
 const GradSignIn = () => {
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const [emailIsValid, setEmailIsValid] = useState();
+  const [passwordIsValid, setPasswordIsValid] = useState();
+  const [formIsValid, setFormIsValid] = useState(false);
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePass = (e) => {
+    setPass(e.target.value);
+  };
+
+  const validateEmailHandler = () => {
+    setEmailIsValid(email.includes("@"));
+  };
+
+  const validatePasswordHandler = () => {
+    setPasswordIsValid(pass.trim().length > 7);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFormIsValid(email.includes("@") && pass.trim().length > 7);
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [email, pass]);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    const userInfo = {
+      email: email,
+      pass: pass,
+    };
+
+    console.log(userInfo);
+  };
   return (
     <div className={classes.gradSignIn}>
       <section className={classes.image_section}></section>
@@ -12,24 +53,34 @@ const GradSignIn = () => {
           <p>Get connected to the right job. Keep an eye on your career</p>
         </div>
         <div className={classes.text_section_formWrap}>
-          <form>
+          <form onSubmit={handleFormSubmit}>
             <main>
-              <div>
+              <div
+                className={`${emailIsValid === false ? classes.invalid : ""}`}
+              >
                 <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   placeholder=" example@gmail.com "
+                  onChange={handleEmail}
+                  onBlur={validateEmailHandler}
                 />
               </div>
-              <div>
+              <div
+                className={`${
+                  passwordIsValid === false ? classes.invalid : ""
+                }`}
+              >
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   id="password"
                   name="password"
                   placeholder=" at least 8 characters "
+                  onChange={handlePass}
+                  onBlur={validatePasswordHandler}
                 />
               </div>
             </main>
@@ -40,7 +91,11 @@ const GradSignIn = () => {
               </div>
               <Link to="/">Forgot Password?</Link>
             </div>
-            <Button type="submit" className={classes.gradSignIn_btn}>
+            <Button
+              type="submit"
+              className={classes.gradSignIn_btn}
+              disabled={!formIsValid}
+            >
               Log In
             </Button>
           </form>

@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: space-between;
   height: 4.5rem;
-  padding-inline: 8.75rem;
+  // padding-inline: 8.75rem;
+  padding-inline: 8%;
   font-size: 1rem;
   font-weight: 400;
   background: #ffffff;
@@ -71,18 +72,35 @@
       z-index: 10;
       top: 4.5rem;
       left: 0;
-      background-color: rgb(255, 255, 255, 0.5);
+      background-color: rgb(255, 255, 255);
       width: 100%;
       ul {
         margin-inline: auto;
+        margin-top: 1rem;
         width: fit-content;
       }
-      .nav_btn {
-        // display: inline-block;
-        margin-block: 1%;
+      button.nav_btn {
+        display: block;
+        width: 80%;
         margin-inline: auto;
-        &:nth-of-type(1) {
-          padding: 0.3125rem 1.8rem;
+        margin-block: 2rem;
+        // padding-block: 5rem;
+        height: 3rem;
+        // &:nth-of-type(1) {
+        //   padding: 0.3125rem 1.8rem;
+        // }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 616px) {
+  .nav {
+    padding-inline: 2%;
+    .navig {
+      ul {
+        li {
+          margin-right: 1.2rem;
         }
       }
     }
