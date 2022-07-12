@@ -8,6 +8,7 @@ import SignUpAs from "../Modals/SignUpAs";
 const Navbar = () => {
   const [signUp, setSignUp] = useState(false);
   const [signIn, setSignIn] = useState(false);
+  const [showNav, setShowNav] = useState(false);
   const handleSignUp = () => {
     setSignUp(true);
   };
@@ -18,10 +19,27 @@ const Navbar = () => {
     setSignUp(false);
     setSignIn(false);
   };
+  const handleNavDisplay = () => {
+    setShowNav(!showNav);
+  };
+  const handleRemoveNav = () => {
+    setShowNav(false);
+  };
   return (
     <div className={classes.nav}>
       <img src="images/logo.png" alt="talent-pool logo" />
-      <div className={classes.navig}>
+      <img
+        src="images/hamburger.png"
+        alt=""
+        className={classes.nav_ham}
+        onClick={handleNavDisplay}
+      />
+      <div
+        className={`${classes.navig} ${
+          showNav ? `${classes.navig_show}` : `${classes.navig_hide}`
+        }`}
+        onClick={handleRemoveNav}
+      >
         <ul>
           <li>
             <NavLink

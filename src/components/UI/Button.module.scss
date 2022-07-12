@@ -3,6 +3,7 @@
   border-radius: 5px;
   text-align: center;
   width: fit-content;
+  transition: all 0.5s ease-out;
   &:hover {
     cursor: pointer;
   }

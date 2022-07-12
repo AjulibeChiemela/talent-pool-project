@@ -5,12 +5,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 5%;
     margin-bottom: 5rem;
     .reasons_grid_item {
       background-repeat: no-repeat;
-      width: 23.5rem;
-      height: 19.25rem;
+      max-width: 23.5rem;
+      max-height: 19.25rem;
+      width: 100%;
+      height: 100%;
       border-radius: 5px;
       img {
         width: 100%;
@@ -32,7 +34,6 @@
           font-weight: 300;
           font-size: 1rem;
           line-height: 1.625rem;
-
           color: #343434;
         }
       }
@@ -52,6 +53,9 @@
         background-image: url(../../../public/images/Rectangle136.png);
       }
       .overlay {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.61);
@@ -85,7 +89,8 @@
         background-color: #000000;
         border-radius: 5px;
         color: #ffffff;
-        width: 15.4375rem;
+        max-width: 15.4375rem;
+        margin-right: 1%;
         padding: 4.1875rem 2.1875rem 1.5rem 1.3125rem;
         & > p {
           &:nth-child(1) {
@@ -129,3 +134,14 @@
     }
   }
 }
+
+// @media screen and (max-width: 1340px) {
+//   .reasons {
+//     .reasons_grid {
+//       // padding-inline: 3rem;
+//       display: grid;
+//       grid-template-columns: repeat(2, 1fr);
+//       grid-template-rows: repeat(4, 1fr);
+//     }
+//   }
+// }

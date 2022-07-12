@@ -1,7 +1,7 @@
 .gradSignUp {
   display: flex;
   section {
-    height: 65.75rem;
+    // height: 65.75rem;
     &.image_section {
       width: 38%;
       background: url(../../../../public/images/Rectangle562.png);
@@ -126,15 +126,77 @@
       }
       .gradSignUp_logos {
         text-align: center;
-        margin-bottom: 2.041875rem;
+        margin-bottom: 1rem;
         img:nth-child(2) {
           padding-left: 2rem;
         }
         & + p {
           text-align: center;
           color: #495057;
+          padding-bottom: 0.5rem;
           a {
             color: #00aeff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .gradSignUp {
+    section {
+      &.text_section {
+        padding-inline: 2rem;
+        .text_section_header {
+          h2 {
+            padding-right: 10%;
+            margin-block: 3rem 0.5rem;
+          }
+          p {
+            padding-right: 10%;
+            margin-bottom: 3rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 897px) {
+  .gradSignUp {
+    section {
+      &.image_section {
+        display: none;
+      }
+      &.text_section {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 616px) {
+  .gradSignUp {
+    section {
+      &.text_section {
+        padding-inline: 1rem;
+        .text_section_formWrap {
+          ul {
+            flex-direction: column;
+            li {
+              width: 100%;
+              text-align: left;
+              .link {
+                line-height: 3rem;
+                padding-inline: 0;
+              }
+            }
+          }
+          form {
+            main {
+              grid-template-columns: 1fr;
+            }
           }
         }
       }

@@ -8,6 +8,9 @@
   font-weight: 400;
   background: #ffffff;
   box-shadow: 1px 2px 4px rgba(214, 217, 223, 0.5);
+  .nav_ham {
+    display: none;
+  }
   .navig {
     display: flex;
     align-items: center;
@@ -35,6 +38,7 @@
         padding: 0.3125rem 1.0625rem;
         background-color: #ffffff;
         color: #00aeff;
+        transition: all 0.5s ease-out;
         &:hover {
           background-color: #dddddd;
         }
@@ -43,8 +47,42 @@
         padding: 0.3125rem 1.5rem;
         background-color: #00aeff;
         color: #ffffff;
+        transition: all 0.5s ease-out;
         &:hover {
           background-color: rgb(2, 131, 190);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .nav {
+    .nav_ham {
+      display: block;
+      cursor: pointer;
+    }
+    .navig_hide {
+      display: none;
+    }
+    .navig_show {
+      display: block;
+      position: absolute;
+      z-index: 10;
+      top: 4.5rem;
+      left: 0;
+      background-color: rgb(255, 255, 255, 0.5);
+      width: 100%;
+      ul {
+        margin-inline: auto;
+        width: fit-content;
+      }
+      .nav_btn {
+        // display: inline-block;
+        margin-block: 1%;
+        margin-inline: auto;
+        &:nth-of-type(1) {
+          padding: 0.3125rem 1.8rem;
         }
       }
     }

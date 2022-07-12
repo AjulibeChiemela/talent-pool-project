@@ -121,3 +121,32 @@
     }
   }
 }
+
+@media screen and (max-width: 1020px) {
+  .EmSignIn {
+    section {
+      &.text_section {
+        padding-inline: 5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 897px) {
+  .EmSignIn {
+    section {
+      &.image_section {
+        display: none;
+      }
+      &.text_section {
+        width: 100%;
+        padding-inline: 1rem;
+        .text_section_header {
+          h2 {
+            margin-top: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+}

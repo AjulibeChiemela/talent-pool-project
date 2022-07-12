@@ -11,8 +11,8 @@ const EmSignUp = () => {
         <div className={classes.text_section_header}>
           <h2>Welcome to TalentPool</h2>
           <p>
-            Lets get your account setup so yo can have acces to a great pool of
-            top talent.
+            Let's get your account setup so you can have access to a great pool
+            of top talent.
           </p>
         </div>
         <div className={classes.text_section_formWrap}>

@@ -24,3 +24,12 @@
     }
   }
 }
+
+@media screen and (max-width: 1440px) {
+  .hero_footer {
+    div:nth-child(2) {
+      grid-template-columns: repeat(3, auto);
+      row-gap: 1rem;
+    }
+  }
+}

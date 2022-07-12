@@ -132,8 +132,57 @@
         & + p {
           text-align: center;
           color: #495057;
+          margin-bottom: 1rem;
           a {
             color: #00aeff;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  .AdminSignIn {
+    section {
+      &.text_section {
+        .AdminSignIn_btns {
+          display: flex;
+          flex-direction: column;
+          button {
+            &:nth-child(1) {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .AdminSignIn {
+    section {
+      &.text_section {
+        padding-inline: 5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 897px) {
+  .AdminSignIn {
+    section {
+      &.image_section {
+        display: none;
+      }
+      &.text_section {
+        width: 100%;
+        padding-inline: 1rem;
+        .text_section_header {
+          h2 {
+            margin-top: 2.5rem;
           }
         }
       }
