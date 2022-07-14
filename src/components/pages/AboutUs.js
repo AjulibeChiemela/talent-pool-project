@@ -80,7 +80,7 @@ export function AboutUs() {
             </div>
           </div>
           <div className={classes.offers_text_sub}>
-            <img src="images/recruit.png" alt="" />
+            <img src="images/support.png" alt="" />
             <div>
               <h3>Speak With Industry Experts</h3>
               <p>

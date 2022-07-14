@@ -12,6 +12,8 @@ import GradSignIn from "./components/Forms/Graduates/GradSignIn";
 // import SignUpSuccess from "./components/Modals/SignUpSuccess";
 import Dashboard from "./components/Dashboards/Employers/Dashboard";
 import { AboutUs } from "./components/pages/AboutUs";
+import Terms from "./components/pages/Terms";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -22,12 +24,12 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<AboutUs />} />
-
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
         {/* SignIn Routes */}
         <Route path="Graduate_SignIn" element={<GradSignIn />} />
         <Route path="Em_SignIn" element={<EmSignIn />} />
         <Route path="Admin_SignIn" element={<AdminSignIn />} />
-
         {/* SignUp Routes */}
         <Route path="Graduate_SignUp" element={<GradSignUp />} />
         {/* for second navlink */}
