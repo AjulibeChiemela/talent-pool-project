@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import SignUpSuccess from "../../Modals/SignUpSuccess";
 import Button from "../../UI/Button";
 import classes from "./AdminSignUp.module.scss";
 
@@ -9,9 +10,15 @@ const AdminSignUp = () => {
   const [adminID, setAdminID] = useState("");
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
+  const [checked, setChecked] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState();
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+  const [signUpSuccess, setsignUpSuccess] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("users", "[]");
+  }, []);
 
   const handleFullName = (e) => {
     setFullName(e.target.value);
@@ -27,6 +34,10 @@ const AdminSignUp = () => {
   };
   const handlePass2 = (e) => {
     setPass2(e.target.value);
+  };
+
+  const handleCheck = () => {
+    setChecked(!checked);
   };
 
   const validateEmailHandler = () => {
@@ -65,7 +76,26 @@ const AdminSignUp = () => {
       pass2: pass2,
     };
 
-    console.log(userInfo);
+    //get from ls,then save
+    let users = localStorage.getItem("users");
+    let userslist = JSON.parse(users) || [];
+    console.log("other-user");
+    userslist.push(userInfo);
+    localStorage.setItem("users", JSON.stringify(userslist));
+    console.log(userslist);
+
+    setFullName("");
+    setEmail("");
+    setAdminID("");
+    setPass1("");
+    setPass2("");
+    setChecked(false);
+
+    setsignUpSuccess(true);
+  };
+
+  const successModalClose = () => {
+    setsignUpSuccess(false);
   };
   return (
     <div className={classes.AdminSignUp}>
@@ -88,6 +118,7 @@ const AdminSignUp = () => {
                 name="full_name"
                 placeholder=" e.g john doe "
                 onChange={handleFullName}
+                value={fullName}
               />
             </div>
             <main>
@@ -102,6 +133,7 @@ const AdminSignUp = () => {
                   placeholder=" example@gmail.com "
                   onChange={handleEmail}
                   onBlur={validateEmailHandler}
+                  value={email}
                 />
               </div>
               <div>
@@ -112,6 +144,7 @@ const AdminSignUp = () => {
                   name="admin_id"
                   placeholder="e.g: ADM-000 "
                   onChange={handleAdminID}
+                  value={adminID}
                 />
               </div>
               <div
@@ -127,6 +160,7 @@ const AdminSignUp = () => {
                   placeholder=" at least 8 characters "
                   onChange={handlePass1}
                   onBlur={validatePassword1Handler}
+                  value={pass1}
                 />
               </div>
               <div
@@ -142,13 +176,21 @@ const AdminSignUp = () => {
                   placeholder=" at least 8 characters"
                   onChange={handlePass2}
                   onBlur={validatePassword2Handler}
+                  value={pass2}
                 />
               </div>
             </main>
             <div>
-              <input type="checkbox" id="agree" name="agree" />
+              <input
+                type="checkbox"
+                id="agree"
+                name="agree"
+                required
+                onClick={handleCheck}
+                checked={checked}
+              />
               <label htmlFor="agree">
-                I agree to the <Link to="/">Terms Policy Conditions</Link>
+                I agree to the <Link to="/terms">Terms Policy Conditions</Link>
               </label>
             </div>
             {pass1 !== pass2 && (
@@ -182,6 +224,7 @@ const AdminSignUp = () => {
           </Link>
         </p>
       </section>
+      {signUpSuccess && <SignUpSuccess onCloseModal={successModalClose} />}
     </div>
   );
 };

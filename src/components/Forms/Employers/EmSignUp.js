@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import SignUpSuccess from "../../Modals/SignUpSuccess";
 import Button from "../../UI/Button";
 import classes from "./EmSignUp.module.scss";
 
@@ -7,9 +8,16 @@ const EmSignUp = () => {
   const [orgName, setOrgName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState();
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+  const [signUpSuccess, setsignUpSuccess] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("users", "[]");
+  }, []);
 
   const handleOrgName = (e) => {
     setOrgName(e.target.value);
@@ -31,6 +39,13 @@ const EmSignUp = () => {
     setPasswordIsValid(pass.trim().length > 7);
   };
 
+  const handleCheck1 = () => {
+    setChecked1(!checked1);
+  };
+  const handleCheck2 = () => {
+    setChecked2(!checked2);
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setFormIsValid(email.includes("@") && pass.trim().length > 7);
@@ -48,7 +63,24 @@ const EmSignUp = () => {
       pass: pass,
     };
 
-    console.log(userInfo);
+    //get from ls,then save
+    let users = localStorage.getItem("users");
+    let userslist = JSON.parse(users) || [];
+    console.log("other-user");
+    userslist.push(userInfo);
+    localStorage.setItem("users", JSON.stringify(userslist));
+    console.log(userslist);
+
+    setOrgName("");
+    setEmail("");
+    setPass("");
+    setChecked1(false);
+    setChecked2(false);
+
+    setsignUpSuccess(true);
+  };
+  const successModalClose = () => {
+    setsignUpSuccess(false);
   };
 
   return (
@@ -100,6 +132,7 @@ const EmSignUp = () => {
                   name="Organization_name"
                   placeholder=" e.g Joe Deo"
                   onChange={handleOrgName}
+                  value={orgName}
                 />
               </div>
               <div
@@ -113,6 +146,7 @@ const EmSignUp = () => {
                   placeholder=" example@gmail.com "
                   onChange={handleEmail}
                   onBlur={validateEmailHandler}
+                  value={email}
                 />
               </div>
               <div
@@ -128,19 +162,34 @@ const EmSignUp = () => {
                   placeholder=" at least 8 characters "
                   onChange={handlePass}
                   onBlur={validatePasswordHandler}
+                  value={pass}
                 />
               </div>
             </main>
             <div>
-              <input type="checkbox" id="receive" name="receive" />
+              <input
+                type="checkbox"
+                id="receive"
+                name="receive"
+                required
+                onClick={handleCheck1}
+                checked={checked1}
+              />
               <label htmlFor="receive">
                 Yes I want to recieve TalentPool emails
               </label>
             </div>
             <div>
-              <input type="checkbox" id="agree" name="agree" />
+              <input
+                type="checkbox"
+                id="agree"
+                name="agree"
+                required
+                onClick={handleCheck2}
+                checked={checked2}
+              />
               <label htmlFor="agree">
-                I agree to the <Link to="/">Terms Policy Conditions</Link>
+                I agree to the <Link to="/terms">Terms Policy Conditions</Link>
               </label>
             </div>
             <Button
@@ -168,6 +217,7 @@ const EmSignUp = () => {
           </Link>
         </p>
       </section>
+      {signUpSuccess && <SignUpSuccess onCloseModal={successModalClose} />}
     </div>
   );
 };

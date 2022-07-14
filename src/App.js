@@ -9,7 +9,6 @@ import AdminSignUp from "./components/Forms/Admin/AdminSignUp";
 import EmSignIn from "./components/Forms/Employers/EmSignIn";
 import AdminSignIn from "./components/Forms/Admin/AdminSignIn";
 import GradSignIn from "./components/Forms/Graduates/GradSignIn";
-// import SignUpSuccess from "./components/Modals/SignUpSuccess";
 import Dashboard from "./components/Dashboards/Employers/Dashboard";
 import { AboutUs } from "./components/pages/AboutUs";
 import Terms from "./components/pages/Terms";
@@ -20,7 +19,7 @@ function App() {
     <div className="App">
       {/* show when user is not signed in */}
       <Navbar />
-      {/* <SignUpSuccess /> */}
+
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<AboutUs />} />

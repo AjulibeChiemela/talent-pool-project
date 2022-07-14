@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import SignUpSuccess from "../../Modals/SignUpSuccess";
 import Button from "../../UI/Button";
 import classes from "./GradSignUp.module.scss";
 
-const GradSignUp = () => {
+const GradSignUp = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
+  const [checked, setChecked] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState();
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+  const [signUpSuccess, setsignUpSuccess] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("users", "[]");
+  }, []);
 
   const handleFirstName = (e) => {
     setFirstName(e.target.value);
@@ -33,6 +40,9 @@ const GradSignUp = () => {
     setPass2(e.target.value);
   };
 
+  const handleCheck = () => {
+    setChecked(!checked);
+  };
   const validateEmailHandler = () => {
     setEmailIsValid(email.includes("@"));
   };
@@ -70,9 +80,28 @@ const GradSignUp = () => {
       pass2: pass2,
     };
 
-    console.log(userInfo);
+    //get from ls,then save
+    let users = localStorage.getItem("users");
+    let userslist = JSON.parse(users) || [];
+    console.log("other-user");
+    userslist.push(userInfo);
+    localStorage.setItem("users", JSON.stringify(userslist));
+    console.log(userslist);
+
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPhoneNo("");
+    setPass1("");
+    setPass2("");
+    setChecked(false);
+
+    setsignUpSuccess(true);
   };
 
+  const successModalClose = () => {
+    setsignUpSuccess(false);
+  };
   return (
     <div className={classes.gradSignUp}>
       <section className={classes.image_section}></section>
@@ -95,7 +124,7 @@ const GradSignUp = () => {
                     : `${classes.link}`
                 }
               >
-                Sign up as HNG Intern
+                Sign up as an Intern
               </NavLink>
             </li>
             <li>
@@ -122,6 +151,7 @@ const GradSignUp = () => {
                   name="firstname"
                   placeholder=" e.g john "
                   onChange={handleFirstName}
+                  value={firstName}
                 />
               </div>
               <div>
@@ -132,6 +162,7 @@ const GradSignUp = () => {
                   name="lastname"
                   placeholder="  e.g doe   "
                   onChange={handleLastName}
+                  value={lastName}
                 />
               </div>
               <div
@@ -145,6 +176,7 @@ const GradSignUp = () => {
                   placeholder=" example@gmail.com "
                   onChange={handleEmail}
                   onBlur={validateEmailHandler}
+                  value={email}
                 />
               </div>
               <div>
@@ -155,6 +187,7 @@ const GradSignUp = () => {
                   name="phoneNo"
                   placeholder=" e.g +2348090000123 "
                   onChange={handlePhoneNo}
+                  value={phoneNo}
                 />
               </div>
               <div
@@ -171,6 +204,7 @@ const GradSignUp = () => {
                   onChange={handlePass1}
                   onBlur={validatePassword1Handler}
                   autoComplete="false"
+                  value={pass1}
                 />
               </div>
               <div
@@ -187,13 +221,21 @@ const GradSignUp = () => {
                   onChange={handlePass2}
                   onBlur={validatePassword2Handler}
                   autoComplete="false"
+                  value={pass2}
                 />
               </div>
             </main>
             <div>
-              <input type="checkbox" id="agree" name="agree" required />
+              <input
+                type="checkbox"
+                id="agree"
+                name="agree"
+                required
+                onClick={handleCheck}
+                checked={checked}
+              />
               <label htmlFor="agree">
-                I agree to the <Link to="/">Terms Policy Conditions</Link>
+                I agree to the <Link to="/terms">Terms Policy Conditions</Link>
               </label>
             </div>
             {pass1 !== pass2 && (
@@ -224,6 +266,7 @@ const GradSignUp = () => {
           </Link>
         </p>
       </section>
+      {signUpSuccess && <SignUpSuccess onCloseModal={successModalClose} />}
     </div>
   );
 };
