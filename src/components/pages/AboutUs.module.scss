@@ -1,0 +1,167 @@
+.about {
+  .hero {
+    background: url(../../../public/images/aboutUsbg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .overlay {
+      padding: 10rem 18.875rem 7.625rem;
+      color: #ffffff;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      h1 {
+        font-weight: 400;
+        text-align: center;
+      }
+    }
+    & + p {
+      margin: 5rem 20.875rem;
+      padding-inline: 4%;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+  }
+  .mission {
+    display: flex;
+    margin-inline: 8%;
+    justify-content: space-between;
+    div {
+      padding: 4.375rem 2rem;
+      width: calc(100% / 3);
+      text-align: center;
+      margin-right: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0px 30px 60px rgba(111, 111, 111, 0.08);
+      h2 {
+        color: #25282b;
+        font-weight: 500;
+      }
+      p {
+        color: #343434;
+      }
+    }
+  }
+  .offers {
+    display: flex;
+    margin-top: 5rem;
+    .offers_sideimg {
+      width: 40%;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .offers_text {
+      width: 60%;
+      background-color: #e7eaec;
+      padding: 3.5625rem 15.75rem 2.5rem 5rem;
+      .offers_text_heading {
+        h2 {
+          color: #303030;
+          font-weight: 600;
+          font-size: 2rem;
+        }
+        p {
+          padding-block: 1rem;
+          color: #343434;
+          width: 70%;
+        }
+      }
+      .offers_text_sub {
+        display: flex;
+        margin-block: 1.5rem;
+        img {
+          margin-right: 1rem;
+          height: 100%;
+        }
+        h3 {
+          font-weight: 500;
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+        }
+        p {
+          width: 70%;
+        }
+      }
+      .offers_text_btn {
+        padding: 0.875rem 2.5rem;
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        color: #ffffff;
+        background-color: #00aeff;
+        margin-top: 1.875rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .about {
+    .offers {
+      .offers_sideimg {
+        width: 45%;
+      }
+      .offers_text {
+        width: 55%;
+        .offers_text_heading {
+          p {
+            width: 100%;
+          }
+        }
+        .offers_text_sub {
+          p {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .about {
+    .hero {
+      .overlay {
+        padding: 10rem;
+      }
+      & + p {
+        margin: 5rem;
+        font-size: 1.1rem;
+      }
+    }
+    .offers {
+      .offers_sideimg {
+        display: none;
+      }
+      .offers_text {
+        width: 100%;
+        padding: 10%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .about {
+    .hero {
+      .overlay {
+        padding: 5rem;
+      }
+    }
+    .mission {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+      div {
+        padding: 1rem;
+        width: auto;
+        margin-bottom: 2rem;
+        box-shadow: 0px 20px 40px rgba(111, 111, 111, 0.08);
+      }
+    }
+  }
+}
