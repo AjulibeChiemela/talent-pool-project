@@ -52,13 +52,13 @@ const Footer = () => {
           <h3>Follow</h3>
           <ul>
             <li>
-              <Link to="/">Facebook</Link>
+              <a href="https://www.facebook.com/">Facebook</a>
             </li>
             <li>
-              <Link to="/">Linkedin</Link>
+              <a href="https://www.linkedin.com/login">Linkedin</a>
             </li>
             <li>
-              <Link to="/">Twitter</Link>
+              <a href="https://twitter.com/i/flow/login">Twitter</a>
             </li>
           </ul>
         </div>
@@ -69,7 +69,7 @@ const Footer = () => {
               <Link to="/terms">Terms</Link>
             </li>
             <li>
-              <Link to="/privacy">Privacy</Link>
+              <Link to="/pria">Privacy</Link>
             </li>
           </ul>
         </div>
