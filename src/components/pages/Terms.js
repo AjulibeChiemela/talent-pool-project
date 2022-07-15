@@ -11,7 +11,7 @@ const Terms = () => {
         <div className={classes.terms_text}>
           <h1>TERMS & CONDITIONS</h1>
           <main>
-            <h2>Last updated: 23rd June, 2020.</h2>
+            <h2>Last updated: 25th July, 2022.</h2>
             <p>
               Fund my Laptop operates http://www.mysite.com (change this) (the
               "Site"). This page informs you of our policies regarding the

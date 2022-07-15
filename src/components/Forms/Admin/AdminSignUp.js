@@ -224,7 +224,12 @@ const AdminSignUp = () => {
           </Link>
         </p>
       </section>
-      {signUpSuccess && <SignUpSuccess onCloseModal={successModalClose} />}
+      {signUpSuccess && (
+        <SignUpSuccess
+          onCloseModal={successModalClose}
+          link={"/Admin_SignIn"}
+        />
+      )}
     </div>
   );
 };

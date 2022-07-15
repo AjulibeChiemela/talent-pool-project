@@ -63,9 +63,9 @@ const Navbar = () => {
               About Us
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
-              to="/2"
+              to="/directories"
               className={({ isActive }) =>
                 isActive
                   ? `${classes.active} ${classes.link}`
@@ -74,8 +74,20 @@ const Navbar = () => {
             >
               Directories
             </NavLink>
-          </li>
+          </li> */}
           <li>
+            <NavLink
+              to="/top_talent"
+              className={({ isActive }) =>
+                isActive
+                  ? `${classes.active} ${classes.link}`
+                  : `${classes.link}`
+              }
+            >
+              Top Talent
+            </NavLink>
+          </li>
+          {/* <li>
             <NavLink
               to="/3"
               className={({ isActive }) =>
@@ -86,10 +98,10 @@ const Navbar = () => {
             >
               FAQ
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink
-              to="/4"
+              to="/contact"
               className={({ isActive }) =>
                 isActive
                   ? `${classes.active} ${classes.link}`
@@ -97,6 +109,18 @@ const Navbar = () => {
               }
             >
               Contact Us
+            </NavLink>
+          </li> */}
+          <li>
+            <NavLink
+              to="/privacy"
+              className={({ isActive }) =>
+                isActive
+                  ? `${classes.active} ${classes.link}`
+                  : `${classes.link}`
+              }
+            >
+              Privacy Policy
             </NavLink>
           </li>
         </ul>

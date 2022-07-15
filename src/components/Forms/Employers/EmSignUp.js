@@ -217,7 +217,9 @@ const EmSignUp = () => {
           </Link>
         </p>
       </section>
-      {signUpSuccess && <SignUpSuccess onCloseModal={successModalClose} />}
+      {signUpSuccess && (
+        <SignUpSuccess onCloseModal={successModalClose} link={"/Em_SignIn"} />
+      )}
     </div>
   );
 };

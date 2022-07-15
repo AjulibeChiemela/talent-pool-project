@@ -266,7 +266,12 @@ const GradSignUp = (props) => {
           </Link>
         </p>
       </section>
-      {signUpSuccess && <SignUpSuccess onCloseModal={successModalClose} />}
+      {signUpSuccess && (
+        <SignUpSuccess
+          onCloseModal={successModalClose}
+          link={"/Graduate_SignIn"}
+        />
+      )}
     </div>
   );
 };
