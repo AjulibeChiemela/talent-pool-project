@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../UI/Button";
 import classes from "./AdminSignIn.module.scss";
-const AdminSignIn = () => {
+const AdminSignIn = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [emailIsValid, setEmailIsValid] = useState();
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+  const navigate = useNavigate();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -40,8 +41,13 @@ const AdminSignIn = () => {
       email: email,
       pass: pass,
     };
-
+    if (!email || !pass) {
+      return;
+    }
+    props.onSignIn(userInfo);
     console.log(userInfo);
+
+    navigate("/dashboard");
   };
   return (
     <div className={classes.AdminSignIn}>

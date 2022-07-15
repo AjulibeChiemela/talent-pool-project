@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../UI/Button";
 import classes from "./EmSignIn.module.scss";
 
-const EmSignIn = () => {
+const EmSignIn = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [emailIsValid, setEmailIsValid] = useState();
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+  const navigate = useNavigate();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -34,6 +35,7 @@ const EmSignIn = () => {
       clearTimeout(timer);
     };
   }, [email, pass]);
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -42,8 +44,15 @@ const EmSignIn = () => {
       pass: pass,
     };
 
+    if (!email || !pass) {
+      return;
+    }
+    props.onSignIn(userInfo);
     console.log(userInfo);
+
+    navigate("/dashboard");
   };
+
   return (
     <div className={classes.EmSignIn}>
       <section className={classes.image_section}></section>

@@ -3,7 +3,8 @@ import Sidebar from "./Sidebar";
 import classes from "./Dashboard.module.scss";
 import Card from "../../UI/Card";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  props.displayNavFoot(false);
   return (
     <div className={classes.dashboard}>
       <Sidebar className={classes.side_bar} />

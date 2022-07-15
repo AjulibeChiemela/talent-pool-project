@@ -13,26 +13,26 @@ const Sidebar = (props) => {
       <ul>
         <li>
           <NavLink
-            to="/dashboard_em"
+            to="/dashboard"
             className={({ isActive }) => (isActive ? `${classes.active}` : "")}
           >
             Dashboard
           </NavLink>
         </li>
         <li>
-          <NavLink to="/11">Messages</NavLink>
+          <NavLink to="/dashboard/11">Messages</NavLink>
         </li>
         <li>
-          <NavLink to="/12">Employees</NavLink>
+          <NavLink to="/dashboard/12">Employees</NavLink>
         </li>
         <li>
-          <NavLink to="/12">Add a team</NavLink>
+          <NavLink to="/dashboard/12">Add a team</NavLink>
         </li>
         <li>
-          <NavLink to="/13">Support</NavLink>
+          <NavLink to="/dashboard/13">Support</NavLink>
         </li>
         <li>
-          <NavLink to="/14">Settings</NavLink>
+          <NavLink to="/dashboard/14">Settings</NavLink>
         </li>
       </ul>
     </div>
