@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import classes from "./Dashboard.module.scss";
 import Card from "../../UI/Card";
+import Button from "../../UI/Button";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = (props) => {
   props.displayNavFoot(false);
+  const navigate = useNavigate();
+  const [showSignOut, setShowSignOut] = useState(false);
+  const handleShowSignOut = () => {
+    setShowSignOut(!showSignOut);
+  };
+  const handleSignOut = () => {
+    props.displayNavFoot(true);
+    navigate("/");
+  };
   return (
     <div className={classes.dashboard}>
       <Sidebar className={classes.side_bar} />
       <div className={classes.main}>
         <div className={classes.nav}>
-          <div>
+          <div className={classes.nav_main}>
             <img src="images/bell.png" alt="" className={classes.nav_icon} />
             <div className={classes.nav_userInfo}>
               <img src="images/dashpic1.png" alt="" />
@@ -22,9 +33,17 @@ const Dashboard = (props) => {
                 src="images/dropdown.png"
                 alt=""
                 className={classes.nav_icon}
+                onClick={handleShowSignOut}
               />
             </div>
           </div>
+          {showSignOut && (
+            <div className={classes.nav_signout}>
+              <Button className={classes.signout_btn} onClick={handleSignOut}>
+                Sign Out
+              </Button>
+            </div>
+          )}
         </div>
         <div className={classes.main_text}>
           <div className={classes.main_top_section}>

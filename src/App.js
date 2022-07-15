@@ -53,7 +53,7 @@ function App() {
         <Route
           path="dashboard"
           element={
-            <ProtectedRoute user={info} displayNavFoot={setShowNavFoot}>
+            <ProtectedRoute user={info}>
               <Dashboard user={info} displayNavFoot={setShowNavFoot} />
             </ProtectedRoute>
           }
