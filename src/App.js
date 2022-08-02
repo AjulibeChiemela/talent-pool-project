@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import "./App.scss";
 import Navbar from "./components/SharedLayouts/Navbar";
 import Footer from "./components/SharedLayouts/Footer";
@@ -13,12 +14,9 @@ import Dashboard from "./components/Dashboards/Employers/Dashboard";
 import { AboutUs } from "./components/pages/AboutUs";
 import Terms from "./components/pages/Terms";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
-import { useState } from "react";
 // import { useEffect, useState } from "react";
 import ProtectedRoute from "./components/Dashboards/ProtectedRoute";
 import Toptalent from "./components/pages/toptalent";
-import Directory from "./components/pages/Directory";
-// import ContactPage from "./components/pages/contactPage";
 
 function App() {
   const [info, setInfo] = useState(null);
@@ -34,8 +32,7 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/top_talent" element={<Toptalent />} />
-        <Route path="directories" element={<Directory />} />
-        {/* <Route path="contact" element={<ContactPage />} /> */}
+
         {/* SignIn Routes */}
         <Route
           path="Graduate_SignIn"
